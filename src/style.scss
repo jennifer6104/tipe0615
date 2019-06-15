@@ -1,0 +1,255 @@
+$top_bgc:rgb(62,110,127);
+$top_color:#ffffff;
+$color1:rgb(173,216,230);
+$color2:rgb(127,255,212);
+$color3:rgb(255,246,143);
+$color4:rgb(255,193,193);
+$color5:rgb(255,160,122);
+$red: #CF2E3B;
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+html,body{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  position:relative;
+  //border:solid 1px red;
+}
+body{
+  position:relative;
+  background-color:#00DDAA;
+  box-sizing:border-box;
+  border-top:solid 30px #116584;
+  border-bottom:solid 30px #116584;
+  overflow:hidden;
+}
+.Top{
+  position:absolute;
+  height:320px;
+  width:320px;
+  background-color:$top_bgc;
+  color:$top_color;
+  border-radius:30px 30px 225px 30px;
+  margin-top:-100px;
+  margin-left:-75px;
+  font-family:'Indie Flower', cursive;
+  h3{
+    margin-left:90px;
+    margin-top:95px;
+    font-size:45px;
+    width:100px;
+    line-height:50px;
+    span{
+       font-size:25px;
+      margin-left:9px;
+    }
+  }
+}
+.heart {
+  position: relative;
+  width: 20px;
+  height: 100px;
+  margin: 60px auto;
+  animation: pulse 1.5s ease-out;
+  animation-iteration-count: infinite;
+  
+  &:before, &:after {
+    position: absolute;
+    content: "";
+    left: 20px;
+    top: 0;
+    border-top: 10px $red solid;
+    width: 20px;
+    height: 30px;
+    background: $red;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  
+  &:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    box-shadow: 2px 0px 1px darken($red, 35%);
+  }
+  
+  &:before {
+    box-shadow: 2px 2px 1px darken($red, 35%);
+    
+  }
+}
+
+@keyframes pulse {
+  0% {transform: scale(2); }
+  25% {transform: scale(1.9); }
+  50% {transform: scale(2.1); }  
+  75% {transform: scale(2); }
+  100% {transform: scale(2); }
+}
+
+
+.screen{
+  width:100%;
+  height:100%;
+  left:100%;
+}
+.namecard{
+  position:fixed;
+  width:300px;
+  height:200px;
+  left:50%;
+  top:50%;
+  padding:0px 20px 30px 20px;
+  overflow:hidden;
+  background-color:#116584;
+  color:#fff;
+  border:solid 1px rgba(0,0,0,0.15);
+  box-shadow:20px 25px 15px -15px rgba(0,0,0,0.25);
+  border-radius:35px;
+  font-family:微軟正黑體;
+  transition:0.5s;
+  hr {
+  border-color:#fff;
+  margin-top:-15px;
+  margin-bottom:20px;
+  }
+  h2{
+    font-size:25px;
+  }
+  span{
+    font-size:18px;
+  }
+  h5{
+    font-size:16px;
+    font-weight:400;
+  }
+}
+.namecard:hover{
+  transform:translate(-50px,-50px);
+  box-shadow:-20px -25px 15px -15px rgba(0,0,0,0.5);
+}
+.allbub{
+  width:100%;
+  height:100%;
+  border-radius:0px;
+  z-index:-3;
+  position:absolute;
+  left:0;
+  top:0;
+  background-color:#333;
+    @keyframes falling{
+    0%,100%{
+      opacity:0;
+    }
+    70%{
+      opacity:1;
+    }
+    0%{
+      transform:translate(100%,0px);
+    }
+    100%{
+      transform:translate(0px,100%);
+    }
+  }
+  [class*='bub']{
+    background-color:#fff;
+    width:2px;
+    height:50px;
+    border-radius:15px;
+    animation:falling 2s infinite;
+  }
+  @for $i from 1 through 30{
+    .bub#{$i}{
+      $posX:random()*100%;
+        $posY:random()*-100%+90%;
+        position:absolute;
+        left:$posX;
+        top:$posY;
+        animation-delay:$i*-0.1s;
+    }
+  }
+}
+@keyframes back {
+  0% {
+    background-color:$color1;
+  }
+  25% {
+    background-color:$color2;
+  }
+  50% {
+    background-color:$color3;
+  }
+  75% {
+    background-color:$color4;
+  }
+  100% {
+    background-color:$color5;
+  }
+}
+.allbub{
+  animation:back 8s infinite;
+}
+@keyframes title{
+  0%{
+    margin-top:-200px;
+    margin-left:-300px;
+  }
+  50%{
+    margin-top:-75px;
+    margin-left:-50px;
+  }
+  100%{
+    margin-top:-100px;
+    margin-left:-75px;
+  }
+}
+.Top{
+  animation:title 3s;
+}
+.oval {
+  margin-top:-500px;
+  margin-left:300px;
+  width: 250px;
+  height: 120px; 
+  background: #40E0D0; 
+  border-radius: 200px 200px 0 0; 
+  transform: scaleY(0.6);
+}
+.oval2{
+  margin-top:-35px;
+  margin-left:300px;
+  width: 250px; 
+  height: 25px;
+  background-color: #E0FFFF; 
+  border-radius: 50%;
+}
+.oval3{
+  margin-top:-85px;
+  margin-left:420px;
+  width: 10px; 
+  height: 288px; 
+  background-color: #BEBEBE; 
+}
+.oval4{
+  margin-top:-310px;
+  margin-left:388px;
+  width: 76px; 
+  height: 20px; 
+  background-color: #BEBEBE; 
+  border-radius: 76px 76px 0 0; 
+  transform: scaleX(0.1); 
+}
+.oval5{
+  margin-top:270px;
+  margin-left:368px;
+  box-sizing: border-box; 
+  width: 64px; 
+  height: 40px; 
+  border: 16px solid #E0FFFF; 
+  border-radius: 0 0 40px 40px; 
+  border-top: none; 
+}
+
+  
